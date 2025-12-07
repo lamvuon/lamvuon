@@ -106,10 +106,10 @@ export const FooterDesktop = () => {
             <RightSideFooterLink href="/oss-friends">
               OSS Friends
             </RightSideFooterLink>
-            <RightSideFooterLink href="/legal/terms">
+            <RightSideFooterLink href="https://terms-of-service.lamvuon.shop">
               Terms of Service
             </RightSideFooterLink>
-            <RightSideFooterLink href="/legal/privacy">
+            <RightSideFooterLink href="https://privacy-policy.lamvuon.shop">
               Privacy Policy
             </RightSideFooterLink>
           </RightSideFooterColumn>
