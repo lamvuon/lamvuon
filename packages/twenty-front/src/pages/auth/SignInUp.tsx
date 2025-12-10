@@ -12,6 +12,7 @@ import { Logo } from '@/auth/components/Logo';
 import { Title } from '@/auth/components/Title';
 import { EmailVerificationSent } from '@/auth/sign-in-up/components/EmailVerificationSent';
 import { FooterNote } from '@/auth/sign-in-up/components/FooterNote';
+import { LamVuonShopInfo } from '@/auth/sign-in-up/components/LamVuonShopInfo';
 import { SignInUpGlobalScopeForm } from '@/auth/sign-in-up/components/SignInUpGlobalScopeForm';
 import { SignInUpWorkspaceScopeForm } from '@/auth/sign-in-up/components/SignInUpWorkspaceScopeForm';
 import { SignInUpSSOIdentityProviderSelection } from '@/auth/sign-in-up/components/internal/SignInUpSSOIdentityProviderSelection';
@@ -75,6 +76,13 @@ const StandardContent = ({
         SignInUpStep.TwoFactorAuthenticationVerification,
         SignInUpStep.WorkspaceSelection,
       ].includes(signInUpStep) && <FooterNote />}
+      {![
+        SignInUpStep.Password,
+        SignInUpStep.TwoFactorAuthenticationProvision,
+        SignInUpStep.TwoFactorAuthenticationVerification,
+        SignInUpStep.WorkspaceSelection,
+        SignInUpStep.EmailVerification,
+      ].includes(signInUpStep) && <LamVuonShopInfo />}
     </Modal.Content>
   );
 };
