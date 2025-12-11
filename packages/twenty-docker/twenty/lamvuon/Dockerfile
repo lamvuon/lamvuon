@@ -53,7 +53,7 @@ RUN npm install -g tsx
 
 RUN apk add --no-cache postgresql-client
 
-COPY ./packages/twenty-docker/twenty/entrypoint.sh /app/entrypoint.sh
+COPY --chown=1000:1000 ./packages/twenty-docker/twenty/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 WORKDIR /app/packages/twenty-server
 
@@ -71,8 +71,9 @@ COPY --chown=1000 --from=twenty-front-build /app/packages/twenty-front/build /ap
 LABEL org.opencontainers.image.source=https://github.com/twentyhq/twenty
 LABEL org.opencontainers.image.description="This image provides a consistent and reproducible environment for the backend and frontend, ensuring it deploys faster and runs the same way regardless of the deployment environment."
 
+# Create storage directories with correct ownership
 RUN mkdir -p /app/.local-storage /app/packages/twenty-server/.local-storage && \
-    chown -R 1000:1000 /app
+    chown -R 1000:1000 /app/.local-storage /app/packages/twenty-server/.local-storage
 
 # Use non root user with uid 1000
 USER 1000
