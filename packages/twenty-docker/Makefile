@@ -15,7 +15,7 @@ prod-build:
 	@cd ../.. && docker build -f ./packages/twenty-docker/twenty/Dockerfile --platform $(PLATFORM) --tag twenty:$(TAG) . && cd -
 
 lamvuon:
-    @cd ../.. && docker build -f ./packages/twenty-docker/twenty/lamvuon/Dockerfile --platform $(PLATFORM) --tag twenty:$(TAG) . && cd -
+	@cd ../.. && docker build -f ./packages/twenty-docker/twenty/lamvuon/Dockerfile --platform $(PLATFORM) --tag twenty:$(TAG) . && cd -
 
 prod-run:
 	@docker run -d -p 3000:3000 --name twenty twenty:$(TAG)
